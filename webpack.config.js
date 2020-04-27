@@ -139,7 +139,11 @@ module.exports = {
 			banner: `Created: ${new Date().toUTCString()}`,
 			raw: false,
 			entryOnly: false
-		})
+		}),
+		new webpack.SourceMapDevToolPlugin({
+			filename: '[name].js.map',
+			exclude: ['vendor.js']
+		  })		  
 	],
 
 	stats: {

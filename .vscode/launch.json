@@ -18,7 +18,9 @@
             "request": "launch",
             "name":"launch webpack-dev-server",
             "program": "${workspaceFolder}/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-            "args": ["--open","--mode","development", "--port","3002", "--progress", "--inline", "--config", "webpack.config.js"]
+            "args": ["--open","--mode","development", "--port","3002", "--progress", "--inline", "--config", "webpack.config.js","--inspect-brk"],
+            "sourceMaps": true,
+            "trace": true
         },
         {
             "type": "firefox",
@@ -32,7 +34,12 @@
             "request": "launch",
             "name": "Launch chrome against localhost",
             "url": "http://localhost:3002", // or whatever port you use
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "trace": true,
+            "sourceMapPathOverrides": {
+                "webpack:///*": "${workspaceRoot}/src/*"
+            }
         }
     ]
 }
